@@ -4,144 +4,86 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #e0f2f1;
-  font-family: 'Comic Sans MS', sans-serif;
+  background-color: #f0fdf4; /* Very light green */
+  font-family: sans-serif;
   overflow: hidden;
-  touch-action: manipulation;
 }
 
 #game-container {
+  text-align: center;
   position: relative;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
 }
 
 #counter {
-  position: absolute;
-  top: 40px;
-  font-size: 32px;
-  color: #00796b;
-  z-index: 10;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #166534;
 }
 
 .frog {
   position: relative;
-  width: 160px;
-  height: 120px;
-  background: #81c784;
-  border-radius: 50% 50% 40% 40%;
+  width: 150px;
+  height: 100px;
+  background: #4ade80;
+  border-radius: 50% 50% 30% 30%;
   cursor: pointer;
-  z-index: 2;
+  margin: 0 auto;
 }
 
 .eye-outer {
   position: absolute;
-  top: -25px;
-  width: 45px;
-  height: 45px;
-  background: #81c784;
+  top: -20px;
+  width: 40px;
+  height: 40px;
+  background: #4ade80;
   border-radius: 50%;
 }
-.eye-outer.left { left: 15px; }
-.eye-outer.right { right: 15px; }
+.left { left: 10px; }
+.right { right: 10px; }
 
 .eye-inner {
   position: absolute;
-  top: 12px;
-  left: 12px;
+  top: 10px;
+  left: 10px;
   width: 20px;
   height: 20px;
-  background: #333;
+  background: #000;
   border-radius: 50%;
 }
-
-.blush {
-  position: absolute;
-  top: 55px;
-  width: 25px;
-  height: 12px;
-  background: #ffcdd2;
-  border-radius: 50%;
-}
-.blush.left { left: 15px; }
-.blush.right { right: 15px; }
 
 .mouth {
   position: absolute;
-  top: 80px;
+  bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
-  width: 50px;
+  width: 40px;
   height: 2px;
-  background: #2e7d32;
+  background: #166534;
 }
 
 .tongue {
   position: absolute;
-  top: 80px;
+  bottom: 20px;
   left: 50%;
-  width: 12px;
+  width: 10px;
   height: 0;
-  background: #ff8a80;
-  border-radius: 10px;
+  background: #fb7185;
   transform: translateX(-50%);
-  transition: 0.15s;
-  z-index: 3;
+  transition: 0.1s;
 }
 
-.shoot-tongue { height: 70px; }
+/* This makes the tongue shoot UP */
+.shoot { height: 60px; bottom: 100%; }
 
-#fly-zone {
+#fly {
   position: absolute;
-  width: 100px;
-  height: 100px;
-  top: 150px; /* Moves fly to the frog's face */
+  font-size: 2rem;
+  top: -80px;
   left: 50%;
   transform: translateX(-50%);
-  pointer-events: none;
-  z-index: 5;
 }
 
-.fly {
-  position: absolute;
-  font-size: 30px;
-  animation: buzzAround 3s infinite ease-in-out;
-}
-
-@keyframes buzzAround {
-  0%   { transform: translate(0, 0); }
-  25%  { transform: translate(25px, 15px); }
-  50%  { transform: translate(0, 30px); }
-  75%  { transform: translate(-25px, 15px); }
-  100% { transform: translate(0, 0); }
-}
-
-.garden {
-  position: absolute;
-  bottom: 40px;
-  width: 90%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 8px;
-}
-
-.flower {
-  font-size: 35px;
-  animation: growIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-@keyframes growIn {
-  0% { transform: scale(0); }
-  100% { transform: scale(1); }
-}
-
-.jump { animation: frogJump 0.4s ease; }
-@keyframes frogJump {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.05) translateY(-10px); }
+.jump { animation: jump 0.3s ease; }
+@keyframes jump {
+  50% { transform: translateY(-10px); }
 }
