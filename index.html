@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kawaii Frog 2.0</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="game-container">
+        <div id="counter">Flies: 0</div>
+        <div id="garden" class="garden"></div>
+
+        <div id="frog" class="frog" onclick="catchFly()">
+            <div class="eye-outer left"><div class="eye-inner"></div></div>
+            <div class="eye-outer right"><div class="eye-inner"></div></div>
+            <div class="blush left"></div>
+            <div class="blush right"></div>
+            <div class="mouth"></div>
+            <div id="tongue" class="tongue"></div>
+        </div>
+
+        <div id="fly-zone">
+            <div id="fly" class="fly">🪰</div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
