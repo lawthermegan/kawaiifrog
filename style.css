@@ -1,0 +1,147 @@
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #e0f2f1;
+  font-family: 'Comic Sans MS', sans-serif;
+  overflow: hidden;
+  touch-action: manipulation;
+}
+
+#game-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#counter {
+  position: absolute;
+  top: 40px;
+  font-size: 32px;
+  color: #00796b;
+  z-index: 10;
+}
+
+.frog {
+  position: relative;
+  width: 160px;
+  height: 120px;
+  background: #81c784;
+  border-radius: 50% 50% 40% 40%;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.eye-outer {
+  position: absolute;
+  top: -25px;
+  width: 45px;
+  height: 45px;
+  background: #81c784;
+  border-radius: 50%;
+}
+.eye-outer.left { left: 15px; }
+.eye-outer.right { right: 15px; }
+
+.eye-inner {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  width: 20px;
+  height: 20px;
+  background: #333;
+  border-radius: 50%;
+}
+
+.blush {
+  position: absolute;
+  top: 55px;
+  width: 25px;
+  height: 12px;
+  background: #ffcdd2;
+  border-radius: 50%;
+}
+.blush.left { left: 15px; }
+.blush.right { right: 15px; }
+
+.mouth {
+  position: absolute;
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 2px;
+  background: #2e7d32;
+}
+
+.tongue {
+  position: absolute;
+  top: 80px;
+  left: 50%;
+  width: 12px;
+  height: 0;
+  background: #ff8a80;
+  border-radius: 10px;
+  transform: translateX(-50%);
+  transition: 0.15s;
+  z-index: 3;
+}
+
+.shoot-tongue { height: 70px; }
+
+#fly-zone {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  top: 150px; /* Moves fly to the frog's face */
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none;
+  z-index: 5;
+}
+
+.fly {
+  position: absolute;
+  font-size: 30px;
+  animation: buzzAround 3s infinite ease-in-out;
+}
+
+@keyframes buzzAround {
+  0%   { transform: translate(0, 0); }
+  25%  { transform: translate(25px, 15px); }
+  50%  { transform: translate(0, 30px); }
+  75%  { transform: translate(-25px, 15px); }
+  100% { transform: translate(0, 0); }
+}
+
+.garden {
+  position: absolute;
+  bottom: 40px;
+  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+.flower {
+  font-size: 35px;
+  animation: growIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes growIn {
+  0% { transform: scale(0); }
+  100% { transform: scale(1); }
+}
+
+.jump { animation: frogJump 0.4s ease; }
+@keyframes frogJump {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05) translateY(-10px); }
+}
